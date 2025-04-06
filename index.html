@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Моят пазар</title>
+  <link rel="stylesheet" href="style/main.css">
+  <!-- Иконка за браузър -->
+<link rel="icon" href="img/icon-1024.png" type="image/png">
+
+<!-- iPhone: иконка за началния екран -->
+<link rel="apple-touch-icon" href="img/icon-1024.png">
+
+<!-- PWA manifest -->
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#aee3c0">
+
+<!-- iPhone специално -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Моят пазар">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+</head>
+<body>
+  <div class="container">
+    <h1> Моят пазар</h1>
+
+    <div class="tabs">
+      <button onclick="switchTab('shopping')"><span class="icon">🎀</span>Покупки</button>
+      <button onclick="switchTab('monthly')"><span class="icon">📆</span>Месечни</button>
+      <button onclick="switchTab('notes')"><span class="icon">🌼</span>Бележки</button>
+    </div>
+
+    <div id="tab-content">
+      <!-- Покупки -->
+      <div id="shopping" class="tab">
+        <div class="task-input">
+          <input type="text" id="shoppingInput" placeholder="Добави покупка...">
+          <button onclick="addShopping()">Добави</button>
+        </div>
+        <ul id="shoppingList"></ul>
+      </div>
+
+      <!-- Месечни -->
+      <div id="monthly" class="tab hidden">
+        <div class="task-input">
+          <input type="text" id="monthlyInput" placeholder="Добави месечна нужда...">
+          <button onclick="addMonthly()">Добави</button>
+        </div>
+        <ul id="monthlyList"></ul>
+      </div>
+
+      <!-- Бележки -->
+      <div id="notes" class="tab hidden">
+        <div class="task-input">
+          <textarea id="noteInput" rows="3" placeholder="Напиши бележка..."></textarea>
+          <button onclick="addNote()">Добави</button>
+        </div>
+        <div id="notesList"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(reg => console.log('✅ Service Worker registered'))
+        .catch(err => console.log('❌ Service Worker error:', err));
+    }
+  </script>
+  
+</body>
+</html>

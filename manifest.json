@@ -1,0 +1,15 @@
+{
+  "name": "Моят пазар",
+  "short_name": "Пазар",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#fdfcf6",
+  "theme_color": "#aee3c0",
+  "icons": [
+    {
+      "src": "img/icon-1024.png",
+      "sizes": "1024x1024",
+      "type": "image/png"
+    }
+  ]
+}
